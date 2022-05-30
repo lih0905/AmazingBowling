@@ -19,9 +19,9 @@ public class Ball : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnDestroy()
     {
-        
+        GameManager.instance.OnBallDestroy();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,8 +44,6 @@ public class Ball : MonoBehaviour
         explosionParticle.Play();
         explosionAudio.Play();
 
-        GameManager.instance.OnBallDestroy();
-        
         Destroy(explosionParticle.gameObject, explosionParticle.main.duration); // 특수효과 끝나면 효과 파괴
         Destroy(gameObject);
     }
