@@ -21,6 +21,8 @@ public class Prop : MonoBehaviour
             instance.Play();
             explosionAudio.Play();
 
+            GameManager.instance.AddScore(score);
+
             Destroy(instance.gameObject, instance.main.duration);
             gameObject.SetActive(false);
         }
